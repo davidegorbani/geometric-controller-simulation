@@ -81,9 +81,6 @@ def decoupled_cont(x, v, R, Om, t):
 
     Om_des = vee_map(np.dot(np.transpose(R_des),R_des_d))
     Om_des_d = vee_map(np.dot(np.transpose(R_des),R_des_ddot) - np.dot(hat_map(Om_des), hat_map(Om_des)))
-
-    e_R = 0.5 * vee_map(np.dot(np.transpose(R_des),R) - np.dot(np.transpose(R),R_des))
-    e_Om = err_Om(R, R_des, Om, Om_des)
     
     M = decoupled_attitude(Om, R, R_des, Om_des, Om_des_d, b1_des, b3_des, b3_des_dot)
 
