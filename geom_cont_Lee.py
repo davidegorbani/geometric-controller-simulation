@@ -45,7 +45,7 @@ x = np.empty_like(t)
 y = np.empty_like(t)
 z = np.empty_like(t)
 mat_rot = np.zeros((9, n))
-
+mat_rot[:, 0] = z0[6:15]
 for i in range(1, n):
 
     f, M = lee_geom_cont(z0, t[i-1])
@@ -54,7 +54,7 @@ for i in range(1, n):
     z0 = sol[1]
     x[i] = z0[0]
     y[i] = z0[1]
-    mat_rot[:, i - 1] = z0[6:15]
+    mat_rot[:, i] = z0[6:15]
     z[i] = z0[2]
 
 x_des = 0.4 * t
